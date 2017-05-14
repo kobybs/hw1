@@ -12,6 +12,7 @@ import javax.xml.parsers.*;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
+import il.ac.technion.cs.sd.book.ext.LineStorage;
 
 class MapObject{
 	Map<String,String> values;
@@ -50,6 +51,7 @@ class MapObject{
 public class BookScoreInitializerImpl implements BookScoreInitializer {
 
 	//@Injector
+	private LineStorageFactory;
 	private LineStorage ls;
 	
 	@Inject
@@ -173,4 +175,5 @@ public class BookScoreInitializerImpl implements BookScoreInitializer {
 	}
 
 	// TODO : insert sorted items
+	// TODO : insert 
 }

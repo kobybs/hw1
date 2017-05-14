@@ -4,6 +4,8 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import il.ac.technion.cs.sd.book.app.BookScoreInitializer;
 import il.ac.technion.cs.sd.book.app.BookScoreReader;
+import il.ac.technion.cs.sd.book.ext.LineStorage;
+import il.ac.technion.cs.sd.book.ext.LineStorageFactory;
 import il.ac.technion.cs.sd.book.ext.LineStorageModule;
 import org.junit.Rule;
 import org.junit.Test;
@@ -26,6 +28,7 @@ public class ExampleTest {
         new Scanner(new File(ExampleTest.class.getResource(fileName).getFile())).useDelimiter("\\Z").next();
     Injector injector = Guice.createInjector(new BookScoreModule(), new LineStorageModule());
     injector.getInstance(BookScoreInitializer.class).setup(fileContents);
+    LineStorage l = injector.getInstance(LineStorageFactory.class).open("x");
     return injector.getInstance(BookScoreReader.class);
   }
 
